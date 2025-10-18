@@ -52,23 +52,57 @@ pip install gradio
 
 ## Usage
 
+Yes, your README should be **slightly updated** to reflect the latest implementation details. Here’s what should change or be clarified:
+
+---
+
+### **1️⃣ Output file locations**
+
+- Mention that **transcripts (`.txt`) are saved in a `logs/` folder**.
+- Mention that **subtitles (`.srt`) are saved alongside the video file**.
+- This helps users know where to find their outputs.
+
+---
+
+### **2️⃣ Dependencies / installation**
+
+- Make sure `torchvision` is **removed** from instructions.
+- Keep instructions for installing `ffmpeg`, as it’s now mandatory for audio extraction.
+
+---
+
+### **3️⃣ UI notes**
+
+- Clarify that Gradio **default theme** is used.
+- Video upload box height and layout scaling for columns.
+- Model size and language selection are available in the UI.
+
+---
+
+### **4️⃣ Minor suggestions**
+
+- Note that **GPU is used automatically if available**, otherwise CPU is used.
+- Warn that **Whisper model weights will download the first time**, and large models can be >1GB.
+
+---
+
+### ✅ **Updated usage section snippet**
+
 1. Run the Gradio app:
 
 ```bash
 python app.py
 ```
 
-2. Open the local URL provided in the console (usually `http://127.0.0.1:7860`).
+2. Open the local URL provided in the console (usually [http://127.0.0.1:7860](http://127.0.0.1:7860)).
 
-3. **Steps in the UI**:
+3. Steps in the UI:
 
-- Upload a video (e.g., MP4, MKV).
-- Enter the language ISO code (e.g., `en` for English, `ur` for Urdu).
-- Choose a model size (tiny, base, small, medium, large).
-- Click **Transcribe**.
-- Download the generated transcript (.txt) and subtitles (.srt).
-
----
+- Upload a video (MP4, MKV, etc.)
+- Enter the language ISO code (e.g., `en` for English, `ur` for Urdu)
+- Choose a Whisper model size (tiny, base, small, medium, large)
+- Click **Transcribe**
+- Download the generated transcript (.txt) from the `logs/` folder and subtitles (.srt) from the same folder as the video.
 
 ## Notes
 
