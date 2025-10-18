@@ -1,0 +1,41 @@
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+venv/
+.git/
+
+# Gradio temporary folder
+.gradio/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# ffmpeg output files (if any)
+*.wav
+*.mp3
+
+# IDE / editor files
+.vscode/
+.idea/
+
+# OS-specific files
+*.swp
+*.swo
+
+# Video files
+*.mp4
+*.mkv
+*.mov
