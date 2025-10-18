@@ -52,42 +52,6 @@ pip install gradio
 
 ## Usage
 
-Yes, your README should be **slightly updated** to reflect the latest implementation details. Here’s what should change or be clarified:
-
----
-
-### **1️⃣ Output file locations**
-
-- Mention that **transcripts (`.txt`) are saved in a `logs/` folder**.
-- Mention that **subtitles (`.srt`) are saved alongside the video file**.
-- This helps users know where to find their outputs.
-
----
-
-### **2️⃣ Dependencies / installation**
-
-- Make sure `torchvision` is **removed** from instructions.
-- Keep instructions for installing `ffmpeg`, as it’s now mandatory for audio extraction.
-
----
-
-### **3️⃣ UI notes**
-
-- Clarify that Gradio **default theme** is used.
-- Video upload box height and layout scaling for columns.
-- Model size and language selection are available in the UI.
-
----
-
-### **4️⃣ Minor suggestions**
-
-- Note that **GPU is used automatically if available**, otherwise CPU is used.
-- Warn that **Whisper model weights will download the first time**, and large models can be >1GB.
-
----
-
-### ✅ **Updated usage section snippet**
-
 1. Run the Gradio app:
 
 ```bash
