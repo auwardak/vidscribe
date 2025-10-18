@@ -40,7 +40,7 @@ def transcribe(video_file, language, model_size):
             "ffmpeg", "-y", "-i", video_file,
             "-ac", "1", "-ar", "16000", audio_path
         ]
-        
+
         result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         if result.returncode != 0:
             return f"Audio extraction failed: {result.stderr.decode()}", None, None
@@ -80,7 +80,7 @@ with gr.Blocks(title="🎬 Vidscribe", theme=gr.themes.Default()) as app:
             language = gr.Textbox(label="🌐 Language (ISO code)", value="ur", lines=2)
             model_size = gr.Dropdown(
                 ["tiny", "base", "small", "medium", "large"],
-                value="small",
+                value="large",
                 label="🧠 Model Size",
             )
             start_btn = gr.Button("🚀 Transcribe")
