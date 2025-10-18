@@ -12,6 +12,9 @@ print(f"Using device: {device}")
 # Model cache
 models_cache = {}
 
+# Make sure logs folder exists
+os.makedirs("logs", exist_ok=True)
+
 def get_model(model_size):
     if model_size not in models_cache:
         models_cache[model_size] = whisper.load_model(model_size, device=device)
@@ -37,14 +40,17 @@ def transcribe(video_file, language, model_size):
             "ffmpeg", "-y", "-i", video_file,
             "-ac", "1", "-ar", "16000", audio_path
         ]
-        subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        
+        result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        if result.returncode != 0:
+            return f"Audio extraction failed: {result.stderr.decode()}", None, None
 
         # Transcribe
         result = model.transcribe(audio_path, language=language, verbose=False)
 
     # Save transcript text
     base_name = os.path.splitext(os.path.basename(video_file))[0]
-    txt_output = f"{base_name}.transcript.txt"
+    txt_output = os.path.join("logs", f"{base_name}.transcript.txt")
     with open(txt_output, "w", encoding="utf-8") as f:
         f.write(result["text"])
 
